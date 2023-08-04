@@ -31,7 +31,7 @@ public class SecurityConfiguration {
 
         http.csrf().disable()//отключение csrf токена
                 .authorizeRequests()// не аутефицированный пользователь
-                .antMatchers("/auth/login","/error").permitAll()// пускаем его на эту страницу
+                .antMatchers("/auth/login","/auth/registration","/error").permitAll()// пускаем его на эту страницу
                 .anyRequest().authenticated()//для всех других запросов пользователь должен быть аутенфицирован
                 .and()
                 .formLogin() // форма для логина
