@@ -30,7 +30,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()//отключение csrf токена
+            http
                 .authorizeRequests()// не аутефицированный пользователь
                 .antMatchers("/auth/login","/auth/registration","/error").permitAll()// пускаем его на эту страницу
                 .anyRequest().authenticated()//для всех других запросов пользователь должен быть аутенфицирован
