@@ -38,7 +38,11 @@ public class SecurityConfiguration {
                 .loginPage("/auth/login")// по какой ссылке переходим
                 .loginProcessingUrl("/process_login")// указываем на какую сслыку переходим при сабмите формы
                 .defaultSuccessUrl("/show",true)//после успешной аунтефикации перенапрваление на страницу
-                .failureUrl("/auth/login?error");// при неудачной попытке входа
+                .failureUrl("/auth/login?error")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/auth/login");// при неудачной попытке входа
 
         return http.build();
     }
